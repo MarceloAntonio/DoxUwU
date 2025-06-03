@@ -1,0 +1,174 @@
+/* Import da fonte usada */
+@import url("https://fonts.googleapis.com/css2?family=Cascadia+Code:ital,wght@0,200..700;1,200..700&display=swap");
+
+/* Root */
+
+:root {
+  --back: #cb9df0;
+  --second: #f0c1e1;
+  --letras: #181926;
+  --footer: #fddbbb;
+}
+
+/* Geral */
+
+* {
+  text-decoration: none;
+  margin: 0%;
+  padding: 0%;
+  box-sizing: border-box;
+  font-family: "Cascadia Code", sans-serif;
+  color: var(--letras);
+}
+
+/* Body */
+
+body {
+  background-color: var(--back);
+}
+
+/* Main */
+
+main {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Dox */
+
+#Dox {
+  background-color: var(--second);
+  padding: 3%;
+  border-radius: 20px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+  animation: transformar 2s ease-in-out;
+}
+
+
+
+#Dox button {
+  width: 100px;
+  height: 30px;
+  border: none;
+  border-radius: 5px;
+  background-color: #f0c1e1;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+  margin: 2%;
+  transition: transform 0.5s ease;
+  cursor: pointer;
+}
+
+#Dox button:hover {
+  transform: scale(1.2);
+}
+
+#Dox button:active {
+  transform: translateY(30px);
+}
+
+/* Home */
+
+#Home {
+  background-color: var(--second);
+  padding: 3%;
+  border-radius: 20px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  animation: transformar 2s ease-in-out;
+}
+
+
+
+
+
+#Home img {
+  width: 50%;
+}
+
+#Sobre{
+  position: relative;
+  right: 45%;
+  top: 6%;
+}
+
+
+#Home button {
+  width: 100px;
+  height: 30px;
+  border: none;
+  border-radius: 5px;
+  background-color: #f0c1e1;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+  margin-top: 5%;
+  transition: transform 0.5s ease;
+  cursor: pointer;
+  font-weight: 800;
+}
+
+#Home button:hover {
+  transform: scale(1.2);
+}
+
+#Home button:active {
+  transform: translateY(30%);
+}
+
+/* Footer */
+
+footer {
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset,
+    rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+  position: absolute;
+  bottom: 0%;
+  height: 4%;
+  width: 100vw;
+  background-color: var(--footer);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Animação */
+
+@keyframes transformar {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/*  Responsividade  */
+
+@media (max-width: 700px) {
+  #Home {
+    margin: 10%;
+  }
+
+  #Dox {
+    margin: 10%;
+  }
+
+  #Dox h1 {
+    font-size: larger;
+    margin-bottom: 5%;
+  }
+
+  #Dox button {
+    margin-top: 5%;
+    margin-left: 5%;
+  }
+
+  #direitos p {
+    font-size: small;
+  }
+}
