@@ -1,13 +1,12 @@
+import { useEffect,useState } from "react"
 
-import { useNavigate } from "react-router-dom"
-
-//import IrParaHome from "./IrPara"
 function Doxing(){
-  const navigate = useNavigate()
+ 
   
   const Refresh = () => {
     window.location.reload()
   }
+ 
 
   //Função para gerar um numero aleatório de uma certa quanntidade começando por 1
   function NumeroAleatorio(QuantidadeDesejada) {
