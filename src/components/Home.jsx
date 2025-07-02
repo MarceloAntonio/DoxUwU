@@ -20,7 +20,7 @@ function Home() {
           <h3> Clique e faça um DOXING em uma pessoa aleatória </h3>
 
           <button onClick={IrParaDoxing}>Doxing</button>
-          <button onClick={IrParaSobre} id="Sobre">Sobre nós</button>
+          <button onClick={IrParaSobre} id="SobreBtn">Sobre nós</button>
         </div>
       </main>
       <Footer/>

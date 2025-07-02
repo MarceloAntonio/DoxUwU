@@ -1,10 +1,19 @@
 import React, { useEffect, useState } from 'react'
 import Footer from './Footer'
+import { useNavigate } from 'react-router-dom'
 
 export default function Doxing() {
   const [usuario, setUsuario] = useState(null)
   const [senha, setSenha] = useState('')
   const [copiado, setCopiado] = useState(false)
+
+  const navigate = useNavigate()
+
+const IrParaHome = () => {
+    navigate("/")
+  }
+
+
 
   // Função para gerar número aleatório de 1 até o valor máximo
   function gerarNumeroAleatorio(max) {
@@ -81,6 +90,7 @@ export default function Doxing() {
             {copiado ? 'Copiado!' : 'Copiar'}
           </button>
           <button onClick={recarregar}>Outra Pessoa</button>
+          <button onClick={IrParaHome}> Voltar </button>
         </div>
       </main>
       <Footer/>

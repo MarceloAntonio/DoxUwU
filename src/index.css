@@ -94,10 +94,11 @@ main {
   width: 50%;
 }
 
-#Sobre{
+#SobreBtn{
   position: relative;
   right: 45%;
   top: 6%;
+  
 }
 
 
@@ -121,6 +122,50 @@ main {
 #Home button:active {
   transform: translateY(30%);
 }
+
+
+
+/* Sobre */
+
+
+
+#Sobre{
+  background-color: var(--second);
+  padding: 3%;
+  border-radius: 20px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  animation: transformar 2s ease-in-out;
+  text-align: left;
+
+}
+
+#Sobre button{
+
+width: 100px;
+  height: 30px;
+  border: none;
+  border-radius: 5px;
+  background-color: #f0c1e1;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+  margin: 2%;
+  transition: transform 0.5s ease;
+  cursor: pointer;
+
+}
+
+#Sobre button:hover {
+  transform: scale(1.2);
+}
+
+#Sobre button:active {
+  transform: translateY(30px);
+}
+
 
 /* Footer */
 
