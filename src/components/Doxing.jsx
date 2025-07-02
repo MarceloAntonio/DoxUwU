@@ -1,103 +1,89 @@
-import { useEffect,useState } from "react"
+import React, { useEffect, useState } from 'react'
+import Footer from './Footer'
 
-function Doxing(){
- 
-  
-  const Refresh = () => {
-    window.location.reload()
-  }
- 
+export default function Doxing() {
+  const [usuario, setUsuario] = useState(null)
+  const [senha, setSenha] = useState('')
+  const [copiado, setCopiado] = useState(false)
 
-  //Função para gerar um numero aleatório de uma certa quanntidade começando por 1
-  function NumeroAleatorio(QuantidadeDesejada) {
-    let geradorDeNumero = Math.floor(Math.random() * QuantidadeDesejada + 1)
-
-    return geradorDeNumero
+  // Função para gerar número aleatório de 1 até o valor máximo
+  function gerarNumeroAleatorio(max) {
+    return Math.floor(Math.random() * max) + 1
   }
 
-  //Gera um local para onde a senha será gerada
-  let senha = NumeroAleatorio(10)
-
-  //Gera uma senha com apenas numeros
-  function SenhaAleatoria() {
+  // Gera uma senha numérica aleatória
+  function gerarSenha() {
+    let s = gerarNumeroAleatorio(10).toString()
     for (let i = 0; i < 10; i++) {
-      let digitoSenha = NumeroAleatorio(9)
+      s += gerarNumeroAleatorio(9).toString()
+    }
+    return s
+  }
 
-      senha = `${senha}` + `${digitoSenha}`
+  // Função para buscar usuário da API e gerar senha
+  const carregarUsuario = async () => {
+    const id = gerarNumeroAleatorio(10)
+    const novaSenha = gerarSenha()
+    setSenha(novaSenha)
+
+    try {
+      const response = await fetch(`https://jsonplaceholder.typicode.com/users/${id}`)
+      const data = await response.json()
+      setUsuario(data)
+      document.title = `Doxing - ${data.name}`
+    } catch (error) {
+      console.error('Erro ao buscar dados da API:', error)
     }
   }
 
-  /*
+  // Executa ao montar o componente
+  useEffect(() => {
+    carregarUsuario()
+  }, [])
 
-Função de conexão com API
-
-°Gera um numero entre 1 a 10 (quantidades de IDs na API)
-°Chama a função de gerar senha
-°Conecta na API com o id aleatório
-°Coloca no titulo o nome da pessoa
-°Escreve no paragrafo as informações da pessoa do ID gerado
-°Altera o titulo da pagina para Doxing - Nome da pessoa
-
-*/
-  window.onload = function () {
-    const idUsuario = NumeroAleatorio(10)
-
-    SenhaAleatoria()
-    console.log(idUsuario)
-
-    fetch(`https://jsonplaceholder.typicode.com/users/${idUsuario}`)
-      .then((response) => response.json())
-      .then((data) => {
-        const lista = document.getElementById("Infos")
-        const titulo = document.getElementById("Titulo")
-        titulo.innerHTML = `Doxing - ${data.name}`
-
-        lista.innerHTML = ` 
-      Nome Completo - ${data.name}<br>
-      Email - ${data.email} <br>
-      Senha - ${senha}        <br>
-      Telefone: ${data.phone}<br>
-      Cidade - ${data.address.city}<br>
-      Rua - ${data.address.street} <br>
-      identificação numérica do domicílio - ${data.address.suite}
-      `
-        document.title = `Doxing - ${data.name}`
-      })
+  // Copia as informações para a área de transferência
+  const copiarParaAreaDeTransferencia = () => {
+    const texto = document.getElementById("Infos").innerText
+    navigator.clipboard.writeText(texto)
+    setCopiado(true)
   }
 
-  //Função para que quando o botão seja clicado copie as informações no campo
-  function BotaoCopiar() {
-    const lista = document.getElementById("Infos").innerText
-    navigator.clipboard.writeText(lista)
-
-    const botao = document.getElementById("btnCopy")
-    botao.innerHTML = "Copiado"
+  // Recarrega o componente com novo usuário e senha
+  const recarregar = () => {
+    setCopiado(false)
+    setUsuario(null)
+    carregarUsuario()
   }
-
-
 
   return (
     <div>
       <main>
         <div id="Dox">
-          <h1 id="Titulo">Doxing - Carregando ...</h1>
-          <p id="Infos">Carregando ...</p>
-          <button id="btnCopy" onClick={BotaoCopiar}>
-            Copiar
+          <h1 id="Titulo">
+            {usuario ? `Doxing - ${usuario.name}` : 'Carregando...'}
+          </h1>
+          <p id="Infos">
+            {usuario ? (
+              <>
+                Nome Completo - {usuario.name}<br />
+                Email - {usuario.email}<br />
+                Senha - {senha}<br />
+                Telefone - {usuario.phone}<br />
+                Cidade - {usuario.address.city}<br />
+                Rua - {usuario.address.street}<br />
+                ID do domicílio - {usuario.address.suite}
+              </>
+            ) : (
+              'Carregando...'
+            )}
+          </p>
+          <button id="btnCopy" onClick={copiarParaAreaDeTransferencia}>
+            {copiado ? 'Copiado!' : 'Copiar'}
           </button>
-          <button onClick={Refresh}>Outra Pessoa</button>
+          <button onClick={recarregar}>Outra Pessoa</button>
         </div>
       </main>
-      <footer>
-        <div id="direitos">
-          <p>
-            copyright © 2025 • All Right Reserved •
-            <a href="https://github.com/MarceloAntonio"> DoxUwU</a>
-          </p>
-        </div>
-      </footer>
+      <Footer/>
     </div>
   )
 }
-
-export default Doxing

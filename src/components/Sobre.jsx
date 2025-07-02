@@ -1,5 +1,11 @@
 function Sobre() {
-  return <h1>Sobre</h1>
+  return (
+  
+  <div>
+  <h1>Sobre</h1>
+  <footer/>
+  </div>
+)
 }
 
 export default Sobre

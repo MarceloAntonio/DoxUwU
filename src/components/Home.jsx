@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom"
+import Footer from "./Footer"
 
 function Home() {
   const navigate = useNavigate()
@@ -22,14 +23,7 @@ function Home() {
           <button onClick={IrParaSobre} id="Sobre">Sobre nós</button>
         </div>
       </main>
-      <footer>
-        <div id="direitos">
-          <p>
-            copyright © 2025 • All Right Reserved •
-            <a href="https://github.com/MarceloAntonio"> DoxUwU</a>
-          </p>
-        </div>
-      </footer>
+      <Footer/>
     </div>
   )
 }
