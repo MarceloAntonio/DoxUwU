@@ -50,7 +50,7 @@ Função de conexão com API
       )
       const data = await response.json()
       setUsuario(data)
-      document.title = `Doxing - ${data.name}`
+      document.title = `DoxUwU - ${data.name}`
     } catch (error) {
       console.error("Erro ao buscar dados da API:", error)
     }

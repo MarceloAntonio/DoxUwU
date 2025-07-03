@@ -7,6 +7,9 @@ function SobreMain() {
     navigate("/")
   }
 
+  document.title = "DoxUwU - Sobre"
+
+
   return (
     <main>
       <div id="Sobre">

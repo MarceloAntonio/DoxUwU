@@ -14,6 +14,9 @@ function HomeMain() {
     navigate("/Form")
   }
 
+  document.title = "DoxUwU - Home"
+
+
   return (
     <main>
       <div id="Home">

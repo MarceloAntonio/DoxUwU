@@ -1,17 +1,11 @@
 import Footer from "../Footer"
+import FormMain from "./FormMain"
 
 function Form() {
   return (
     <div>
-      <main>
-        <div id="Form">
-
-
-
-          
-        </div>
-      </main>
-
+    
+      <FormMain/>
       <Footer />
     </div>
   )
