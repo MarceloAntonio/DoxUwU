@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
 
-import {Home,Sobre,Registro} from "./components/Direcionador"
+import {Home,Sobre,Registro,Form} from "./components/Direcionador"
 
 function App() {
   return (
@@ -10,6 +10,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/Doxing" element={<Registro />} />
           <Route path="/Sobre" element={<Sobre />} />
+          <Route path="/Form" element={<Form />} />
         </Routes>
       </Router>
     </>

@@ -10,6 +10,10 @@ function HomeMain() {
     navigate("/Sobre")
   }
 
+  const IrParaForm = () => {
+    navigate("/Form")
+  }
+
   return (
     <main>
       <div id="Home">
@@ -18,6 +22,10 @@ function HomeMain() {
         <button onClick={IrParaDoxing}>Doxing</button>
         <button onClick={IrParaSobre} id="SobreBtn">
           Sobre nós
+        </button>
+        
+        <button onClick={IrParaForm} id="FormBtn">
+          Doar seus dados
         </button>
       </div>
     </main>

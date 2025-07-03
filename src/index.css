@@ -8,6 +8,7 @@
   --second: #f0c1e1;
   --letras: #181926;
   --footer: #fddbbb;
+  --coisas:
 }
 
 /* Geral */
@@ -91,9 +92,17 @@ main {
 #SobreBtn{
   position: relative;
   right: 45%;
-  top: 6%;
+  top: 22%;
   
 }
+
+#FormBtn{
+  position: relative;
+  left: 45%;
+  top: 10%;
+  
+}
+
 
 #Home button {
   width: 100px;
@@ -162,6 +171,28 @@ width: 100px;
 
 #Sobre button:active {
   transform: translateY(30px);
+}
+
+
+/* Form */
+
+#Form{
+
+
+  background-color: var(--second);
+  padding: 3%;
+  margin: 2%;
+  border-radius: 20px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  animation: transformar 2s ease-in-out;
+  text-align: left;
+
+
 }
 
 

@@ -8,6 +8,7 @@ E em caso de escabilidade apenas adicionar a pagina aqui
 
 
 */
+export { default as Form} from "./Form/Form"
 export { default as Home } from "./Home/Home"
 export { default as Sobre } from "./Sobre/Sobre"
 export { default as Registro } from "./Doxing/Doxing"
