@@ -2,12 +2,10 @@ import HomeMain from "./HomeMain"
 import Footer from "./Footer"
 
 function Home() {
-  
-
   return (
     <div>
-      <HomeMain/>
-      <Footer/>
+      <HomeMain />
+      <Footer />
     </div>
   )
 }

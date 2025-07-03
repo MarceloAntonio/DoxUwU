@@ -49,8 +49,6 @@ main {
   width: 40%;
 }
 
-
-
 #Dox button {
   width: 100px;
   height: 30px;
@@ -86,10 +84,6 @@ main {
   animation: transformar 2s ease-in-out;
 }
 
-
-
-
-
 #Home img {
   width: 50%;
 }
@@ -100,7 +94,6 @@ main {
   top: 6%;
   
 }
-
 
 #Home button {
   width: 100px;
@@ -132,6 +125,7 @@ main {
 #Sobre{
   background-color: var(--second);
   padding: 3%;
+  margin: 2%;
   border-radius: 20px;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
     rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
@@ -142,6 +136,10 @@ main {
   animation: transformar 2s ease-in-out;
   text-align: left;
 
+}
+
+#Sobre p{
+  margin-top: 2%;
 }
 
 #Sobre button{

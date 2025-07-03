@@ -1,11 +1,11 @@
-import Footer from './Footer'
-import DoxingAPI from './DoxingAPI'
+import Footer from "./Footer"
+import DoxingAPI from "./DoxingAPI"
 
 function Doxing() {
   return (
     <div>
-     <DoxingAPI/>
-      <Footer/>
+      <DoxingAPI />
+      <Footer />
     </div>
   )
 }
