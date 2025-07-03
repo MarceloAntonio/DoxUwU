@@ -1,5 +1,5 @@
 import SobreMain from "./SobreMain"
-import Footer from "./Footer"
+import Footer from "../Footer"
 function Sobre() {
   return (
     <div>

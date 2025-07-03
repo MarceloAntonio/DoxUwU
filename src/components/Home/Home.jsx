@@ -1,5 +1,5 @@
 import HomeMain from "./HomeMain"
-import Footer from "./Footer"
+import Footer from "../Footer"
 
 function Home() {
   return (
