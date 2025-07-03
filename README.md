@@ -1,6 +1,6 @@
 # DoxUwU 
 
-![Logo](src/assets/logoDoxUwU.png)
+![Logo](src/assets/LogoDoxUwU.png)
 
 **DoxUwU** é um projeto com uma missão simples: dar dados alheios aos nossos usuarios
 
