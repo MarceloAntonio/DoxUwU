@@ -31,9 +31,9 @@ function DoxingAPI() {
 
 Função de conexão com API
 
-°Gera um numero entre 1 a 10 (quantidades de IDs na API)
+°Gera um numero entre 1 a 10 (quantidades de IDs na API) ou 1 a 11 se o usuario local for criado
 °Chama a função de gerar senha
-°Conecta na API com o id aleatório
+°Conecta na API com o id gerado
 °Coloca no titulo o nome da pessoa
 °Escreve no paragrafo as informações da pessoa do ID gerado
 °Altera o titulo da pagina para Doxing - Nome da pessoa
@@ -85,7 +85,7 @@ Função de conexão com API
   }
 
   
-
+//Caso seja o ID 11 ele vai puxar as infos do usuario Local
   if (idUsuario === 11) {
     return (
       <main>
@@ -122,7 +122,10 @@ Função de conexão com API
         </div>
       </main>
     )
-  } else {
+  } 
+  
+//Se não for 11 puxara da API
+  else {
     return (
       <main>
         <div id="Dox">

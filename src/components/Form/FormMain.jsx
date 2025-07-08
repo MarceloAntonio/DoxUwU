@@ -16,6 +16,7 @@ function FormMain() {
     navigate("/")
   }
 
+  //Função de interroptor do popUp
   let popUpOpen = false
   function popUp(){
     const form = document.getElementById("Form")
@@ -32,6 +33,7 @@ function FormMain() {
   }
 
 
+//função para recompensar o usuario com o cookie
 function PegarCookies(){
   
   IrParaHome()
@@ -45,7 +47,7 @@ function PegarCookies(){
 
 }
 
-
+//Função para pegar as informações do formulario, guardar no local storage e alterar o numero de usuarios existentes e abrir o popUp
 
   const GetInfos = (e) => {
     e.preventDefault()

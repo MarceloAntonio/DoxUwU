@@ -17,6 +17,7 @@ function HomeMain() {
 
   document.title = "DoxUwU - Home"
 
+  //checa se o usuario tem o cookie ou não
   if (cookieAdquirido.cookie === true) {
     return (
       <main>
