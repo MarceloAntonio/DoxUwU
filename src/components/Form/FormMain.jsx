@@ -16,6 +16,37 @@ function FormMain() {
     navigate("/")
   }
 
+  let popUpOpen = false
+  function popUp(){
+    const form = document.getElementById("Form")
+    const recompensa = document.getElementById("recompensa")
+    if(popUpOpen === false){
+
+      popUpOpen = true
+
+      form.style.display = "none"
+      recompensa.style.display = "flex"
+    }
+
+
+  }
+
+
+function PegarCookies(){
+  
+  IrParaHome()
+
+  const cookieAdquirido = JSON.parse(localStorage.getItem("cookieAdquirido"))
+  
+  cookieAdquirido.cookie = true
+  
+  localStorage.setItem("cookieAdquirido", JSON.stringify(cookieAdquirido))
+  
+
+}
+
+
+
   const GetInfos = (e) => {
     e.preventDefault()
     const infos = {
@@ -34,10 +65,25 @@ function FormMain() {
     localStorage.setItem("QuantidadeUsers", JSON.stringify(numeroDeUsers))
     console.log("Numero de Users "+numeroDeUsers.usuarios)
     console.log("Informações resgatadas: "+infos)
+
+    popUp()
+
+
   }
 
   return (
     <main>
+      <span id="recompensa">
+        <div>
+          <h1>Dados enviados ヽ(^◇^*)/</h1>
+          <p>
+            Seus dados foram enviados para nosso banco de dados ≧◡≦ (ありがとう)
+            <br /> Sua recompensa é este cookie (ﾉ◕ヮ◕)ﾉ*:･ﾟ🍪
+          </p>
+            <button onClick={PegarCookies}> Resgatar cookie e voltar para Home </button>
+        </div>
+      </span>
+
       <div id="Form">
         <form onSubmit={GetInfos}>
           <label htmlFor="Nome">Nome</label>

@@ -7,6 +7,14 @@ function App() {
   const Usuarios = {
     usuarios: 10
   }
+
+  const cookieAdquirido = 
+  {
+   cookie: false
+  }
+  localStorage.setItem("cookieAdquirido", JSON.stringify(cookieAdquirido))
+
+
   
   localStorage.setItem("QuantidadeUsers", JSON.stringify(Usuarios))
   return (

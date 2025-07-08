@@ -13,25 +13,42 @@ function HomeMain() {
   const IrParaForm = () => {
     navigate("/Form")
   }
+  const cookieAdquirido = JSON.parse(localStorage.getItem("cookieAdquirido"))
 
   document.title = "DoxUwU - Home"
 
-
-  return (
-    <main>
-      <div id="Home">
-        <img src="src\assets\FaceMuahaha.png" alt="" />
-        <h3> Clique e faça um DOXING em uma pessoa aleatória </h3>
-        <button onClick={IrParaDoxing}>Doxing</button>
-        <button onClick={IrParaSobre} id="SobreBtn">
-          Sobre nós
-        </button>
-        
-        <button onClick={IrParaForm} id="FormBtn">
-          Doar seus dados
-        </button>
-      </div>
-    </main>
-  )
+  if (cookieAdquirido.cookie === true) {
+    return (
+      <main>
+        <div id="Home">
+          <img src="src\assets\FaceMuahaha.png" alt="" />
+          <h3> Clique e faça um DOXING em uma pessoa aleatória 🍪</h3>
+          <button onClick={IrParaDoxing}>Doxing</button>
+          <button onClick={IrParaSobre} id="SobreBtn">
+            Sobre nós
+          </button>
+          <button onClick={IrParaForm} id="FormBtn">
+            Doar seus dados
+          </button>
+        </div>
+      </main>
+    )
+  } else {
+    return (
+      <main>
+        <div id="Home">
+          <img src="src\assets\FaceMuahaha.png" alt="" />
+          <h3> Clique e faça um DOXING em uma pessoa aleatória</h3>
+          <button onClick={IrParaDoxing}>Doxing</button>
+          <button onClick={IrParaSobre} id="SobreBtn">
+            Sobre nós
+          </button>
+          <button onClick={IrParaForm} id="FormBtn">
+            Doar seus dados
+          </button>
+        </div>
+      </main>
+    )
+  }
 }
 export default HomeMain
