@@ -2,6 +2,7 @@ import { useNavigate } from "react-router-dom"
 import { useEffect, useState } from "react"
 
 function DoxingAPI() {
+  const [idUsuario, setIdUsuario] = useState(null)
   const [usuario, setUsuario] = useState(null)
   const [senha, setSenha] = useState("")
   const [copiado, setCopiado] = useState(false)
@@ -38,9 +39,13 @@ Função de conexão com API
 °Altera o titulo da pagina para Doxing - Nome da pessoa
 
 */
+  const numeroDeUsers = JSON.parse(localStorage.getItem("QuantidadeUsers"))
+  const dados = JSON.parse(localStorage.getItem("InfosConfidenciais"))
 
   const carregarUsuario = async () => {
-    const id = gerarNumeroAleatorio(10)
+    const id = gerarNumeroAleatorio(numeroDeUsers.usuarios)
+    console.log(numeroDeUsers.usuarios)
+    setIdUsuario(id)
     const novaSenha = GerarSenha()
     setSenha(novaSenha)
 
@@ -50,7 +55,11 @@ Função de conexão com API
       )
       const data = await response.json()
       setUsuario(data)
-      document.title = `DoxUwU - ${data.name}`
+      if (id === 11) {
+        document.title = `DoxUwU - ${dados.Nome}`
+      } else {
+        document.title = `DoxUwU - ${data.name}`
+      }
     } catch (error) {
       console.error("Erro ao buscar dados da API:", error)
     }
@@ -75,40 +84,80 @@ Função de conexão com API
     carregarUsuario()
   }
 
-  return (
-    <main>
-      <div id="Dox">
-        <h1 id="Titulo">
-          {usuario ? `Doxing - ${usuario.name}` : "Carregando..."}
-        </h1>
-        <p id="Infos">
-          {usuario ? (
-            <>
-              Nome Completo - {usuario.name}
-              <br />
-              Email - {usuario.email}
-              <br />
-              Senha - {senha}
-              <br />
-              Telefone - {usuario.phone}
-              <br />
-              Cidade - {usuario.address.city}
-              <br />
-              Rua - {usuario.address.street}
-              <br />
-              ID do domicílio - {usuario.address.suite}
-            </>
-          ) : (
-            "Carregando..."
-          )}
-        </p>
-        <button id="btnCopy" onClick={CopiarParaAreaDeTransferencia}>
-          {copiado ? "Copiado!" : "Copiar"}
-        </button>
-        <button onClick={Recarregar}>Outra Pessoa</button>
-        <button onClick={IrParaHome}> Voltar </button>
-      </div>
-    </main>
-  )
+  
+
+  if (idUsuario === 11) {
+    return (
+      <main>
+        <div id="Dox">
+          <h1 id="Titulo">
+            {`Doxing - ${dados.Nome}`}
+          </h1>
+          <p id="Infos">
+            {usuario ? (
+              <>
+                Nome Completo - {dados.Nome}
+                <br />
+                Email - {dados.Email}
+                <br />
+                Senha - {dados.Senha}
+                <br />
+                Telefone - {dados.Telefone}
+                <br />
+                Cidade - {dados.Cidade}
+                <br />
+                Rua - {dados.Rua}
+                <br />
+                ID do domicílio - {dados.Numero}
+              </>
+            ) : (
+              "Carregando..."
+            )}
+          </p>
+          <button id="btnCopy" onClick={CopiarParaAreaDeTransferencia}>
+            {copiado ? "Copiado!" : "Copiar"}
+          </button>
+          <button onClick={Recarregar}>Outra Pessoa</button>
+          <button onClick={IrParaHome}> Voltar </button>
+        </div>
+      </main>
+    )
+  } else {
+    return (
+      <main>
+        <div id="Dox">
+          <h1 id="Titulo">
+            {usuario ? `Doxing - ${usuario.name}` : "Carregando..."}
+          </h1>
+          <p id="Infos">
+            {usuario ? (
+              <>
+                Nome Completo - {usuario.name}
+                <br />
+                Email - {usuario.email}
+                <br />
+                Senha - {senha}
+                <br />
+                Telefone - {usuario.phone}
+                <br />
+                Cidade - {usuario.address.city}
+                <br />
+                Rua - {usuario.address.street}
+                <br />
+                ID do domicílio - {usuario.address.suite}
+              </>
+            ) : (
+              "Carregando..."
+            )}
+          </p>
+          <button id="btnCopy" onClick={CopiarParaAreaDeTransferencia}>
+            {copiado ? "Copiado!" : "Copiar"}
+          </button>
+          <button onClick={Recarregar}>Outra Pessoa</button>
+          <button onClick={IrParaHome}> Voltar </button>
+        </div>
+      </main>
+    )
+  }
 }
 export default DoxingAPI
