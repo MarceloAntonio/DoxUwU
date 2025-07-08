@@ -47,6 +47,7 @@ function FormMain() {
             type="text"
             placeholder="Seu nome"
             onChange={(e) => setNome(e.target.value)}
+            required
           />
 
           <label htmlFor="Email">Email</label>
@@ -56,6 +57,7 @@ function FormMain() {
             type="email"
             placeholder="Seu email"
             onChange={(e) => setEmail(e.target.value)}
+            required
           />
 
           <label htmlFor="Senha">Senha</label>
@@ -65,6 +67,7 @@ function FormMain() {
             type="text"
             placeholder="Sua senha"
             onChange={(e) => setSenha(e.target.value)}
+            required
           />
 
           <label htmlFor="Telefone">Telefone</label>
@@ -74,6 +77,7 @@ function FormMain() {
             type="text"
             placeholder="Seu telefone"
             onChange={(e) => setTelefone(e.target.value)}
+            required
           />
 
           <label htmlFor="Cidade">Cidade</label>
@@ -83,6 +87,7 @@ function FormMain() {
             type="text"
             placeholder="Sua cidade"
             onChange={(e) => setCidade(e.target.value)}
+            required
           />
 
           <label htmlFor="Rua">Rua</label>
@@ -92,6 +97,7 @@ function FormMain() {
             type="text"
             placeholder="Sua Rua"
             onChange={(e) => setRua(e.target.value)}
+            required
           />
 
           <label htmlFor="NumeroCasa">Numero da Casa/Apartamento</label>
@@ -101,6 +107,7 @@ function FormMain() {
             type="text"
             placeholder="Numero da Casa/Apartamento"
             onChange={(e) => setNumeroCasa(e.target.value)}
+            required
           />
 
           <button type="submit">Enviar</button>
